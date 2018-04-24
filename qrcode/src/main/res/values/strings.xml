@@ -1,0 +1,32 @@
+<resources>
+    <string name="qrcode_app_name">QRCode</string>
+
+    <!-- QR_Code -->
+    <string name="qrcode_button_ok">OK</string>
+    <string name="qrcode_msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the
+        device.
+    </string>
+    <string name="qrcode_msg_bulk_mode_scanned">Bulk mode: barcode scanned and saved</string>
+    <string name="qrcode_scan_text">放入框中即可进行二维码扫描</string>
+    <string name="qrcode_contents_contact">Contact info</string>
+    <string name="qrcode_contents_email">Email address</string>
+    <string name="qrcode_contents_location">Geographic coordinates</string>
+    <string name="qrcode_contents_phone">Phone number</string>
+    <string name="qrcode_contents_sms">SMS address</string>
+    <string name="qrcode_contents_text">Plain text</string>
+    <string name="qrcode_preferences_vibrate">qrcode_preferences_vibrate</string>
+    <string name="qrcode_preferences_play_beep">qrcode_preferences_play_beep</string>
+    <string name="qrcode_preferences_actions_title">When a barcode is found\u2026</string>
+    <string name="qrcode_preferences_copy_to_clipboard_title">Copy to clipboard</string>
+    <string name="qrcode_preferences_decode_1D_title">1D barcodes</string>
+    <string name="qrcode_preferences_decode_Data_Matrix_title">Data Matrix</string>
+    <string name="qrcode_preferences_decode_QR_title">QR Codes</string>
+    <string name="qrcode_preferences_play_beep_title">Beep</string>
+    <string name="qrcode_preferences_remember_duplicates_summary">Store multiple scans of the same barcode in History</string>
+    <string name="qrcode_preferences_remember_duplicates_title">Remember duplicates</string>
+    <string name="qrcode_preferences_scanning_title">When scanning for barcodes, decode\u2026</string>
+    <string name="qrcode_preferences_supplemental_summary">Try to retrieve more information about the barcode contents</string>
+    <string name="qrcode_preferences_supplemental_title">Retrieve more info</string>
+    <string name="qrcode_preferences_vibrate_title">Vibrate</string>
+
+</resources>

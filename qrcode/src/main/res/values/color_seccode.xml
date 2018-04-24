@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- QR_Code -->
+    <color name="qrcode_viewfinder_mask">#60000000</color>
+    <color name="qrcode_result_view">#b0000000</color>
+    <color name="qrcode_possible_qrcode_result_points">#c0ffff00</color>
+    <color name="qrcode_result_image_border">#ffffffff</color>
+    <color name="qrcode_result_points">#c000ff00</color>
+</resources>
