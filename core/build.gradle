@@ -2,7 +2,9 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
-    resourcePrefix "qrcode_"
+
+
+
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 26
@@ -10,6 +12,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -22,9 +25,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    testApi 'junit:junit:4.12'
+    androidTestApi 'com.android.support.test:runner:1.0.1'
+    androidTestApi 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-
-    implementation 'com.google.zxing:core:3.3.1'
-    implementation project(':core')
+    api 'com.android.support.constraint:constraint-layout:1.0.2'
+    api 'com.android.support:appcompat-v7:26.1.0'
+    api 'com.android.support:design:26.1.0'
 }

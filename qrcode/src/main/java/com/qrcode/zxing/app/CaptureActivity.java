@@ -31,29 +31,25 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.core.Utils.statusbar.StatusBarUtil;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
-import com.google.zxing.EncodeHintType;
 import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
 import com.google.zxing.ResultPoint;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
-import com.google.zxing.qrcode.QRCodeWriter;
 import com.qrcode.R;
 import com.qrcode.zxing.camera.CameraManager;
 import com.qrcode.zxing.decode.BeepManager;
@@ -64,7 +60,6 @@ import com.qrcode.zxing.decode.InactivityTimer;
 import com.qrcode.zxing.decode.Intents;
 import com.qrcode.zxing.decode.RGBLuminanceSource;
 import com.qrcode.zxing.util.QRCodeUtils;
-import com.qrcode.zxing.util.StatusbarUtils;
 import com.qrcode.zxing.util.Util;
 import com.qrcode.zxing.view.ViewfinderView;
 
@@ -140,16 +135,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
     @Override
     public void onCreate(Bundle icicle) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(icicle);
-
-        /*Window window = getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);*/
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        //在这里调用
-        StatusbarUtils.enableTranslucentStatusbar(this);
-
+        StatusBarUtil.setColor(this, ContextCompat.getColor(this,R.color.qrcode_we_chat_black));
         setContentView(R.layout.qrcode_activity_capture_layout);
 
         Util.currentActivity = this;

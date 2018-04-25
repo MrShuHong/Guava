@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.statusbar.StatusBarMainActivity;
 import com.qrcode.zxing.app.CaptureActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        findViewById(R.id.btn_statusbar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent inten = new Intent(MainActivity.this, StatusBarMainActivity.class);
+                startActivityForResult(inten, 1000);
             }
         });
 
