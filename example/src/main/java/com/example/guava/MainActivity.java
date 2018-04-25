@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.qrcode.zxing.app.CaptureActivity;
+import com.qrcode.zxing.app.CaptureActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static  final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION  = 100;

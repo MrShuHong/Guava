@@ -8,6 +8,7 @@
     </string>
     <string name="qrcode_msg_bulk_mode_scanned">Bulk mode: barcode scanned and saved</string>
     <string name="qrcode_scan_text">放入框中即可进行二维码扫描</string>
+    <string name="qrcode_scan_title">扫一扫</string>
     <string name="qrcode_contents_contact">Contact info</string>
     <string name="qrcode_contents_email">Email address</string>
     <string name="qrcode_contents_location">Geographic coordinates</string>
