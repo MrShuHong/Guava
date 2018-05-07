@@ -1,1 +1,1 @@
-include ':example', ':qrcode', ':statusbar', ':core'
+include ':example', ':qrcode', ':statusbar', ':core', ':sourcecode'
