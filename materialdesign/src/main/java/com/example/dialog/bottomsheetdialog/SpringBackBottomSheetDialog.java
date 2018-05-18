@@ -3,21 +3,26 @@ package com.example.dialog.bottomsheetdialog;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
+import android.support.annotation.StyleRes;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.AccessibilityDelegateCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v7.app.AppCompatDialog;
+import android.util.Log;
 import android.util.TypedValue;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.example.statusbar.R;
@@ -26,23 +31,32 @@ import com.example.statusbar.R;
  * Created by admin on 2018/5/7.
  * 可回弹的BottomSheetDialog  , 具体效果可以看网易云音乐的 播放列表
  */
+
 public class SpringBackBottomSheetDialog extends AppCompatDialog {
-    private boolean mCancelable;
-    private ConstraintLayout mConstraintLayout;
-    private BottomSheetBehavior<FrameLayout> mSheetBehavior;
+
+    private BottomSheetBehavior<FrameLayout> mBehavior;
+
+    boolean mCancelable = true;
+    private boolean mCanceledOnTouchOutside = true;
+    private boolean mCanceledOnTouchOutsideSet;
+
+    private CoordinatorLayout coordinator;
+    private FrameLayout bottomSheet;
+    private Rect r = new Rect();
 
     public SpringBackBottomSheetDialog(@NonNull Context context) {
-        this(context, getThemeResId(context, 0));
+        this(context, 0);
+    }
+
+    public SpringBackBottomSheetDialog(@NonNull Context context, @StyleRes int theme) {
+        super(context, getThemeResId(context, theme));
+        // We hide the title bar for any style configuration. Otherwise, there will be a gap
+        // above the bottom sheet when it is expanded.
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 
-
-    public SpringBackBottomSheetDialog(@NonNull Context context, int themeResId) {
-        super(context, themeResId);
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-    }
-
-    public SpringBackBottomSheetDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
+    protected SpringBackBottomSheetDialog(@NonNull Context context, boolean cancelable,
+                                          OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         mCancelable = cancelable;
@@ -51,6 +65,20 @@ public class SpringBackBottomSheetDialog extends AppCompatDialog {
     @Override
     public void setContentView(@LayoutRes int layoutResId) {
         super.setContentView(wrapInBottomSheet(layoutResId, null, null));
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        if (window != null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            }
+            window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT);
+        }
     }
 
     @Override
@@ -66,43 +94,95 @@ public class SpringBackBottomSheetDialog extends AppCompatDialog {
     @Override
     public void setCancelable(boolean cancelable) {
         super.setCancelable(cancelable);
+        if (mCancelable != cancelable) {
+            mCancelable = cancelable;
+            if (mBehavior != null) {
+                mBehavior.setHideable(cancelable);
+            }
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (mSheetBehavior != null){
-            mSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        if (mBehavior != null) {
+            mBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         }
     }
 
     @Override
     public void setCanceledOnTouchOutside(boolean cancel) {
         super.setCanceledOnTouchOutside(cancel);
+        if (cancel && !mCancelable) {
+            mCancelable = true;
+        }
+        mCanceledOnTouchOutside = cancel;
+        mCanceledOnTouchOutsideSet = true;
     }
 
-    @SuppressLint("ClickableViewAccessibility")
+    /**
+     * 添加 top 距离顶部多少的时候触发收缩效果
+     * @param targetLimitH int 高度限制
+     */
+    @SuppressWarnings("all")
+    public void addSpringBackDisLimit(final int targetLimitH){
+        if(coordinator == null)
+            return;
+        final int totalHeight = getContext().getResources().getDisplayMetrics().heightPixels;
+        final int currentH = (int) ((float)totalHeight*0.618);
+        final int leftH    = totalHeight - currentH;
+        coordinator.setOnTouchListener(
+                new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()){
+                            case MotionEvent.ACTION_MOVE:
+                                // 计算相对于屏幕的 坐标
+                                bottomSheet.getGlobalVisibleRect(r);
+                                break;
+                            case MotionEvent.ACTION_UP:
+                                int limitH;
+                                if(targetLimitH < 0)
+                                    limitH = (leftH + currentH/3);
+                                else
+                                    limitH = targetLimitH;
+                                Log.e("aaaaa","limitH = "+limitH+ "  ; r.top = "+r.top);
+                                if(r.top <= limitH && mBehavior != null){
+                                    mBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                                }
+
+                                break;
+                        }
+                        return false;
+                    }
+                }
+        );
+    }
+
     private View wrapInBottomSheet(int layoutResId, View view, ViewGroup.LayoutParams params) {
-        final FrameLayout container = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.dialog_spring_back_bottom_sheet_layout, null);
-        mConstraintLayout = container.findViewById(R.id.constraint_layout);
-        if (layoutResId !=  0 && view == null){
-            view = LayoutInflater.from(getContext()).inflate(layoutResId, null);
+        final FrameLayout container = (FrameLayout) View.inflate(getContext(),
+                R.layout.dialog_spring_back_bottom_sheet_layout, null);
+        coordinator = container.findViewById(R.id.coordinator_layout);
+        if (layoutResId != 0 && view == null) {
+            view = getLayoutInflater().inflate(layoutResId, coordinator, false);
         }
 
-        //dialog 真正的填充数据的 container
-        FrameLayout bottomSheetContainer = mConstraintLayout.findViewById(R.id.frame_container_layout);
-
-        mSheetBehavior = BottomSheetBehavior.from(bottomSheetContainer);
-        mSheetBehavior.setBottomSheetCallback(mBottomSheetCallback);
-        mSheetBehavior.setHideable(mCancelable);
-
-        if (params != null){
-            bottomSheetContainer.addView(view,params);
-        }else{
-            bottomSheetContainer.addView(view);
+        if (params == null) {
+            bottomSheet.addView(view);
+        } else {
+            bottomSheet.addView(view, params);
         }
+        // We treat the CoordinatorLayout as outside the dialog though it is technically inside
+        coordinator.findViewById(R.id.touch_outside).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mCancelable && isShowing() && shouldWindowCloseOnTouchOutside()) {
+                    cancel();
+                }
+            }
+        });
         // Handle accessibility events
-        ViewCompat.setAccessibilityDelegate(bottomSheetContainer, new AccessibilityDelegateCompat() {
+        ViewCompat.setAccessibilityDelegate(bottomSheet, new AccessibilityDelegateCompat() {
             @Override
             public void onInitializeAccessibilityNodeInfo(View host,
                                                           AccessibilityNodeInfoCompat info) {
@@ -124,15 +204,29 @@ public class SpringBackBottomSheetDialog extends AppCompatDialog {
                 return super.performAccessibilityAction(host, action, args);
             }
         });
-
-        /*bottomSheetContainer.setOnTouchListener(new View.OnTouchListener() {
+        bottomSheet.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
                 // coordinator intecept, 这没用
                 return true;
             }
-        });*/
+        });
         return container;
+    }
+
+    boolean shouldWindowCloseOnTouchOutside() {
+        if (!mCanceledOnTouchOutsideSet) {
+            if (Build.VERSION.SDK_INT < 11) {
+                mCanceledOnTouchOutside = true;
+            } else {
+                TypedArray a = getContext().obtainStyledAttributes(
+                        new int[]{android.R.attr.windowCloseOnTouchOutside});
+                mCanceledOnTouchOutside = a.getBoolean(0, true);
+                a.recycle();
+            }
+            mCanceledOnTouchOutsideSet = true;
+        }
+        return mCanceledOnTouchOutside;
     }
 
     private static int getThemeResId(Context context, int themeId) {

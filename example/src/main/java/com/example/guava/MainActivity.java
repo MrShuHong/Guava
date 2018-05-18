@@ -15,18 +15,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
+import com.example.dialog.TestBottomSheetDialogActivity;
 import com.example.statusbar.StatusBarMainActivity;
 import com.qrcode.zxing.app.CaptureActivity;
 
 import java.security.MessageDigest;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 100;
     private TextView mTxtContent;
 
@@ -63,37 +65,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_statusbar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent inten = new Intent(MainActivity.this, StatusBarMainActivity.class);
-                startActivityForResult(inten, 1000);
-            }
-        });
-
-        RequestOptions requestOptions = new RequestOptions()
-                .transform(new BitmapTransformation() {
-                    @Override
-                    protected Bitmap transform(@NonNull BitmapPool pool, @NonNull Bitmap toTransform, int outWidth, int outHeight) {
-
-
-                        if (toTransform != null){
-
-                        }
-
-                        return toTransform;
-                    }
-
-                    @Override
-                    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-
-                    }
-                });
-        Glide.with(this)
-                .load("https://devapinew2.jqian.com/Data/images/exclusive/cash.png")
-                .apply(requestOptions)
-                .into(new ImageView(this));
+        findViewById(R.id.btn_material_design).setOnClickListener(this);
     }
 
 
@@ -119,6 +92,16 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 1000 && data != null) {
             String result = data.getStringExtra(CaptureActivity.SCAN_RESULT);
             mTxtContent.setText(result);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id){
+            case R.id.btn_material_design:
+                ARouter.getInstance().build("/material_design/main").navigation();
+                break;
         }
     }
 }

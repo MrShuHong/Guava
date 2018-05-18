@@ -41,7 +41,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.core.Utils.statusbar.StatusBarUtil;
+import com.core.utils.statusbar.StatusBarUtil;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;

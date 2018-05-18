@@ -1,23 +1,22 @@
 package com.example.statusbar;
 
 
-import android.app.IntentService;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
-import com.core.Utils.statusbar.StatusBarUtil;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.core.utils.statusbar.StatusBarUtil;
 
 /**
  * Created by admin on 2018/4/25.
  */
-
+@Route(path = "/material_design/statusbar")
 public class StatusBarMainActivity extends BaseActivity {
 
     private HandlerThread handlerThread;

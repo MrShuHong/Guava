@@ -2,5 +2,8 @@
     package="com.example.statusbar" >
     <application>
         <activity android:name=".StatusBarMainActivity"/>
+        <activity android:name="com.example.dialog.TestBottomSheetDialogActivity"/>
+        <activity android:name="com.example.MaterialDesignActivity"/>
+        <activity android:name="com.example.behavior.lesson01.BehaviorActivity"/>
     </application>
 </manifest>

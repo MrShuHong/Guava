@@ -1,4 +1,4 @@
-package com.core.Utils;
+package com.core.utils;
 
 import android.os.Build;
 import android.text.TextUtils;

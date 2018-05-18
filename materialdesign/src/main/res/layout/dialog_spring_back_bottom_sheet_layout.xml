@@ -7,8 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraint_layout"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -22,12 +22,12 @@
         <FrameLayout
             android:id="@+id/frame_container_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             style="?attr/bottomSheetStyle"
             app:behavior_skipCollapsed="true"
             app:layout_behavior="@string/bottom_sheet_behavior"
             tools:ignore="MissingPrefix" />
 
 
-    </android.support.constraint.ConstraintLayout>
+    </android.support.design.widget.CoordinatorLayout>
 </FrameLayout>
