@@ -4,7 +4,11 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.RectF;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -25,6 +29,7 @@ public class AvatarView extends View {
 
     {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.parseColor("#ffffff"));
     }
 
     public AvatarView(Context context) {
@@ -42,8 +47,18 @@ public class AvatarView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Bitmap bitmap = getBitmap(R.drawable.timg, getWidth());
-        canvas.drawBitmap(bitmap,0,0,mPaint);
+        //外层百边
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2,getWidth() / 2, mPaint);
+
+
+        RectF rectF = new RectF(0, 0, getWidth(), getHeight());
+        int save = canvas.saveLayer(rectF, mPaint);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2,getWidth() / 2 - ScreenUtils.dip2px(5) , mPaint);
+        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+
+        Bitmap bitmap = getBitmap(R.drawable.timg, (int) (getWidth() - ScreenUtils.dip2px(10)));
+        canvas.drawBitmap(bitmap,ScreenUtils.dip2px(5),ScreenUtils.dip2px(5),mPaint);
+        canvas.restoreToCount(save);
     }
 
     public Bitmap getBitmap(@DrawableRes int drawableID,int width){
