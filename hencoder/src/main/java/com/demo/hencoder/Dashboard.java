@@ -59,7 +59,7 @@ public class Dashboard extends View {
         Path arcPath = new Path();
         arcPath.addArc(rectF,120,300);
         PathMeasure measure = new PathMeasure(arcPath,false);
-        float advance = measure.getLength() / 20;
+        float advance = (measure.getLength() - ScreenUtils.dip2px(4)) / 20;
 
         Log.d("dsh","advance = "+advance);
         Path path = new Path();
@@ -70,7 +70,7 @@ public class Dashboard extends View {
         canvas.drawArc(rectF,120,300,false,mPaint);
         mPaint.setPathEffect(null);
 
-        float advance2 = measure.getLength() / 5;
+        float advance2 = (measure.getLength() -ScreenUtils.dip2px(4)) / 5;
         path.addRect(0,0,ScreenUtils.dip2px(4),ScreenUtils.dip2px(20), Path.Direction.CCW);
         @SuppressLint("DrawAllocation")
         PathDashPathEffect effect2 = new PathDashPathEffect(path, advance2, 0, PathDashPathEffect.Style.ROTATE);

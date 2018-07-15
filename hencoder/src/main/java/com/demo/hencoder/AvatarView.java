@@ -47,7 +47,7 @@ public class AvatarView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        //外层百边
+        //外层白边
         canvas.drawCircle(getWidth() / 2, getHeight() / 2,getWidth() / 2, mPaint);
 
 
@@ -58,6 +58,7 @@ public class AvatarView extends View {
 
         Bitmap bitmap = getBitmap(R.drawable.timg, (int) (getWidth() - ScreenUtils.dip2px(10)));
         canvas.drawBitmap(bitmap,ScreenUtils.dip2px(5),ScreenUtils.dip2px(5),mPaint);
+        mPaint.setXfermode(null);
         canvas.restoreToCount(save);
     }
 
