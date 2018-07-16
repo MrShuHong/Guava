@@ -52,6 +52,15 @@
             android:layout_marginRight="16dp"
             android:layout_marginTop="10dp"
             android:text="MaterialDesign" />
+
+        <Button
+            android:id="@+id/btn_download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:text="下载文件" />
     </LinearLayout>
 
 

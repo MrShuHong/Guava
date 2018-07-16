@@ -5,5 +5,6 @@
         <activity android:name="com.example.dialog.TestBottomSheetDialogActivity"/>
         <activity android:name="com.example.MaterialDesignActivity"/>
         <activity android:name="com.example.behavior.lesson01.BehaviorActivity"/>
+        <activity android:name="com.example.behavior.lesson02.CustomFloatingActionButtonActivity"/>
     </application>
 </manifest>
