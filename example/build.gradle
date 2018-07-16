@@ -32,12 +32,12 @@ android {
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
     compile project(':qrcode')
     compile project(':materialdesign')
     compile project(':core')
     compile 'com.android.support:multidex:1.0.3'
-
     implementation 'com.alibaba:arouter-api:1.3.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    implementation project(':hencoder')
+    implementation project(':sourcecode')
 }

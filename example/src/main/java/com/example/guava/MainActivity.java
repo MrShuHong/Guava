@@ -1,35 +1,20 @@
 package com.example.guava;
 
 import android.Manifest;
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
-import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
-import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
-import com.example.dialog.TestBottomSheetDialogActivity;
-import com.example.statusbar.StatusBarMainActivity;
 import com.qrcode.zxing.app.CaptureActivity;
-
-import java.security.MessageDigest;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 100;
@@ -70,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         findViewById(R.id.btn_material_design).setOnClickListener(this);
-        findViewById(R.id.btn_download).setOnClickListener(this);
+        findViewById(R.id.btn_hencoder).setOnClickListener(this);
     }
 
 
@@ -102,20 +87,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        switch (id){
+        switch (id) {
             case R.id.btn_material_design:
                 ARouter.getInstance().build("/material_design/main").navigation();
                 break;
-            case R.id.btn_download:
-                ARouter.getInstance().build("/example/test").navigation();
+
+            case R.id.btn_hencoder:
+                ARouter.getInstance().build("/hencoder/main").navigation();
+                break;
+            default:
                 break;
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        Log.e("dsh", "onDestroy: " );
     }
 }
