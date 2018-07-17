@@ -59,9 +59,9 @@ public class PieChart extends View {
         float offestX = (float) (Math.cos(Math.toRadians(angle)) * ScreenUtils.dip2px(10));
         float offestY = - (float) (Math.sin(Math.toRadians(angle)) * ScreenUtils.dip2px(10));
         Log.d("dsh", "dp10 = " +ScreenUtils.dip2px(10) + " ; offestX = " + offestX + " ; offestY = " + offestY);
-        RectF offestRectF = new RectF(PADDING + offestX, PADDING + offestY,
-                getWidth() - PADDING + offestX, getHeight() - PADDING + offestY);
-        canvas.drawArc(offestRectF, 110, 120, true, mPaint);
+
+        rectF.offset(offestX,offestY);
+        canvas.drawArc(rectF, 110, 120, true, mPaint);
         mPaint.setColor(Color.parseColor("#E06666"));
         canvas.drawArc(rectF, 230, 70, true, mPaint);
         mPaint.setColor(Color.parseColor("#434343"));
