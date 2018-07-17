@@ -5,6 +5,10 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 
 /**
  * Created by admin on 2018/5/7.
@@ -27,5 +31,11 @@ public class GuavaApplication extends MultiDexApplication {
         }
         ARouter.init(this); // 尽可能早，推荐在Application中初始化
 
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(false)  //（可选）是否显示线程信息。 默认值为true
+                .methodCount(2)         // （可选）要显示的方法行数。 默认2
+                .methodOffset(7)        // （可选）隐藏内部方法调用到偏移量。 默认5
+                .build();
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
     }
 }

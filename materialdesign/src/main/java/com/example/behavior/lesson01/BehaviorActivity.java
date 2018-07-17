@@ -72,7 +72,7 @@ public class BehaviorActivity extends AppCompatActivity implements View.OnClickL
         bottomSheetDialog.setContentView(dialogView);
         RecyclerView recycler_view = dialogView.findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
-                this, LinearLayoutManager.VERTICAL, true);
+                this, LinearLayoutManager.VERTICAL, false);
         recycler_view.setLayoutManager(linearLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(
                 this, LinearLayout.VERTICAL);

@@ -14,13 +14,11 @@ android {
         multiDexEnabled true
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
             }
         }
     }
-    dexOptions {
-        incremental true
-    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -30,6 +28,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':qrcode')
     compile project(':materialdesign')

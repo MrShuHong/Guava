@@ -23,6 +23,7 @@ public class MaterialDesignActivity extends AppCompatActivity implements View.On
         findViewById(R.id.status_bar).setOnClickListener(this);
         findViewById(R.id.bottom_sheet_behavior).setOnClickListener(this);
         findViewById(R.id.custom_bottom_sheet).setOnClickListener(this);
+        findViewById(R.id.custom_floating_button_behavior).setOnClickListener(this);
     }
 
     @Override
@@ -34,6 +35,8 @@ public class MaterialDesignActivity extends AppCompatActivity implements View.On
             ARouter.getInstance().build("/material_design/behavior").navigation();
         }else if (viewId == R.id.custom_bottom_sheet){
             ARouter.getInstance().build("/material_design/custom_bottom_sheet").navigation();
+        }else if (viewId == R.id.custom_floating_button_behavior){
+            ARouter.getInstance().build("/material_design/floatingbehavior").navigation();
         }
     }
 }

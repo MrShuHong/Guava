@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">StatusBar</string>
+
+    <string name="scale_up_show_behavior" translatable="false">
+        com.example.behavior.lesson02.ScaleUpShowBehavior
+    </string>
 </resources>

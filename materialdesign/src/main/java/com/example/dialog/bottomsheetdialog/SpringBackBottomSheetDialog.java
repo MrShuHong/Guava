@@ -166,7 +166,7 @@ public class SpringBackBottomSheetDialog extends AppCompatDialog {
         if (layoutResId != 0 && view == null) {
             view = getLayoutInflater().inflate(layoutResId, coordinator, false);
         }
-
+        bottomSheet = coordinator.findViewById(R.id.frame_container_layout);
         if (params == null) {
             bottomSheet.addView(view);
         } else {
