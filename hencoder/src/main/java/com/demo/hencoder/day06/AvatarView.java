@@ -1,4 +1,4 @@
-package com.demo.hencoder;
+package com.demo.hencoder.day06;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,6 +15,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.core.utils.ScreenUtils;
+import com.demo.hencoder.R;
 
 /**
  * File description.

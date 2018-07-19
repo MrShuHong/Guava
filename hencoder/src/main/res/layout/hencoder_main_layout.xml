@@ -7,9 +7,8 @@
     android:background="#5c9ed9">
 
 
-    <com.demo.hencoder.SportsView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerInParent="true"/>
+    <com.demo.hencoder.day07.TransformView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

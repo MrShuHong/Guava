@@ -1,4 +1,4 @@
-package com.demo.hencoder;
+package com.demo.hencoder.day06;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -14,6 +14,7 @@ import android.util.TypedValue;
 import android.view.View;
 
 import com.core.utils.ScreenUtils;
+import com.demo.hencoder.R;
 
 /**
  * File description.
