@@ -25,7 +25,8 @@ import com.core.utils.ScreenUtils;
 
 public class Dashboard extends View {
 
-    public static final float PADDING = ScreenUtils.dip2px(40); 
+    public static final float PADDING = ScreenUtils.dip2px(40);
+
     private Paint mPaint;
 
     {

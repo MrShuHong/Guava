@@ -1,14 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5c9ed9">
+    android:background="#5c9ed9"
+    android:orientation="vertical">
 
-
-    <com.demo.hencoder.day07.TransformView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+
+    <com.demo.hencoder.day09.SquareImageView
+        android:id="@+id/view"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:background="@drawable/timg"/>
+
+    <com.demo.hencoder.day09.TagLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="爷爷给狗狗"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="洗澡手法清奇"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="画面温馨"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="眼神宠溺"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="见儿子"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="走过来心虚了"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="你瞅啥？"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="我贼带劲儿"/>
+
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="大大咧咧的"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="这些都是我的老铁"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="乔纳森"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="长得老帅了"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="老好了"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="如鱼得水"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="永远18岁"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="嘎嘎地"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="杠杠滴！"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="沙楞地学"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="你真头子"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="刻苦学习"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="家长里短"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@drawable/shape_tag_bg"
+            android:text="三板斧"/>-->
+
+    </com.demo.hencoder.day09.TagLayout>
+
+</LinearLayout>

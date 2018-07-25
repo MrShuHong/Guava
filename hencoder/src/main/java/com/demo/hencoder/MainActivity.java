@@ -15,9 +15,13 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 @Route(path = "/hencoder/main")
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hencoder_main_layout);
+//        MaterialEditText view = findViewById(R.id.view);
+
     }
 }
