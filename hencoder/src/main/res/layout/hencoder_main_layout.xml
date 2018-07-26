@@ -24,153 +24,198 @@
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="爷爷给狗狗"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="洗澡手法清奇"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="画面温馨"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shape_tag_bg"
+            android:padding="10dp"
             android:gravity="center"
             android:text="眼神宠溺"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="见儿子"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="走过来心虚了"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="你瞅啥？"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="我贼带劲儿"/>
 
-        <!--<TextView
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="大大咧咧的"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="这些都是我的老铁"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="乔纳森"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="长得老帅了"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="老好了"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="如鱼得水"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="永远18岁"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="嘎嘎地"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="杠杠滴！"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="沙楞地学"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="你真头子"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="刻苦学习"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
             android:text="家长里短"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
             android:gravity="center"
             android:background="@drawable/shape_tag_bg"
-            android:text="三板斧"/>-->
+            android:text="三板斧"/>
 
     </com.demo.hencoder.day09.TagLayout>
 

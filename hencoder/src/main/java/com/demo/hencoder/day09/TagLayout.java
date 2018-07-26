@@ -44,9 +44,15 @@ public class TagLayout extends ViewGroup {
             Rect childBounds = childrensBounds[index];
             measureChildWithMargins(childView, widthMeasureSpec, lineWidthUsed, heightMeasureSpec, heightUsed);
 
+            //如果你是精确尺寸
+            boolean condition1 = lineWidthUsed + childView.getMeasuredWidth() + getPaddingStart() + getPaddingEnd() >=
+                    MeasureSpec.getSize(widthMeasureSpec);
+
+            //如果你是自适应尺寸
+            boolean condition2 = (childView.getMeasuredState() & MEASURED_STATE_TOO_SMALL) != 0;
+
             //测量换行情况
-            if (lineWidthUsed + childView.getMeasuredWidth() + getPaddingStart() + getPaddingEnd() >=
-                    MeasureSpec.getSize(widthMeasureSpec)) {
+            if (condition1 || condition2) {
                 lineWidthUsed = 0;
                 heightUsed += maxHeight;
                 maxHeight = 0;
