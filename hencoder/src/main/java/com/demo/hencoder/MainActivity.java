@@ -20,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hencoder_main_layout);
+        setContentView(R.layout.drag_listener_layout);
 //        MaterialEditText view = findViewById(R.id.view);
+
 
     }
 }
