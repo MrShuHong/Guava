@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.btn_material_design).setOnClickListener(this);
         findViewById(R.id.btn_hencoder).setOnClickListener(this);
+        findViewById(R.id.btn_recycler).setOnClickListener(this);
     }
 
 
@@ -94,6 +95,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_hencoder:
                 ARouter.getInstance().build("/hencoder/main").navigation();
+                break;
+
+            case R.id.btn_recycler:
+                ARouter.getInstance().build("/widget/main").navigation();
                 break;
             default:
                 break;

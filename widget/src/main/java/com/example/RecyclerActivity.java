@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.treeview.TreeSelcetActivity;
 import com.example.widget.R;
 
 /**
@@ -26,6 +27,22 @@ public class RecyclerActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 startActivity(new Intent(RecyclerActivity.this,VerticalLayoutManagerActivity.class));
+            }
+        });
+
+        findViewById(R.id.btn_tree).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(RecyclerActivity.this,OrgTreeActivity.class));
+            }
+        });
+
+        findViewById(R.id.btn_tree_select).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(RecyclerActivity.this,TreeSelcetActivity.class));
             }
         });
     }

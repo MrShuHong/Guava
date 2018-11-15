@@ -1,7 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.widget" >
+    package="com.example.widget">
+
     <application>
-        <activity android:name="com.example.RecyclerActivity"/>
-        <activity android:name="com.example.VerticalLayoutManagerActivity"/>
+        <activity android:name="com.example.RecyclerActivity" />
+        <activity android:name="com.example.VerticalLayoutManagerActivity" />
+        <activity android:name="com.example.OrgTreeActivity" />
+        <activity android:name="com.example.treeview.TreeSelcetActivity"></activity>
     </application>
+
 </manifest>

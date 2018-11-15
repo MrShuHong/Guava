@@ -1,1 +1,1 @@
-include ':example', ':qrcode', ':materialdesign', ':core', ':sourcecode', ':hencoder'
+include ':example', ':qrcode', ':materialdesign', ':core', ':sourcecode', ':hencoder',':widget'

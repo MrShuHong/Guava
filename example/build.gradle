@@ -38,4 +38,5 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     implementation project(':hencoder')
     implementation project(':sourcecode')
+    implementation project(':widget')
 }

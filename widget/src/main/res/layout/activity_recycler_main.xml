@@ -8,4 +8,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="自定义LayoutManager 01"/>
+
+    <Button
+        android:id="@+id/btn_tree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="组织树 01"/>
+
+
+    <Button
+        android:id="@+id/btn_tree_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="checkbox组织树 01"/>
 </LinearLayout>
