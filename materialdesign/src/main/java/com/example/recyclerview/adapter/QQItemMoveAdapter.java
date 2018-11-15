@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -50,13 +49,11 @@ public class QQItemMoveAdapter extends RecyclerView.Adapter {
     public static class ItemViewHolder extends RecyclerView.ViewHolder{
         public final TextView txtItem;
         public final RelativeLayout mItemContent;
-        public final LinearLayout mLlSlide;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             txtItem = itemView.findViewById(R.id.txt_item);
             mItemContent = itemView.findViewById(R.id.item_content);
-            mLlSlide = itemView.findViewById(R.id.ll_slide);
         }
     }
 }

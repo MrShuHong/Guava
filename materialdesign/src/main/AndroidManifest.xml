@@ -6,5 +6,6 @@
         <activity android:name="com.example.MaterialDesignActivity"/>
         <activity android:name="com.example.behavior.lesson01.BehaviorActivity"/>
         <activity android:name="com.example.behavior.lesson02.CustomFloatingActionButtonActivity"/>
+        <activity android:name="com.example.recyclerview.RecyclerActivity"/>
     </application>
 </manifest>

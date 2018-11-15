@@ -7,14 +7,12 @@ import android.util.Log;
 
 import com.core.utils.ScreenUtils;
 import com.example.recyclerview.adapter.QQItemMoveAdapter;
-import com.example.statusbar.R;
 
 public class QQItemMoveCallback extends ItemTouchHelper.Callback {
 
     private static final String TAG = "QQItemMoveCallback";
     private float mSwipeDx;
     private int mItemRight;
-    private float mLastdX;
 
     /*private ItemTouchMoveListener itemTouchMoveListener;
 
@@ -70,13 +68,12 @@ public class QQItemMoveCallback extends ItemTouchHelper.Callback {
         }else {
             super.clearView(recyclerView, viewHolder);
         }*/
-        /*if (mItemRight == ScreenUtils.dip2px(90)) {
+        if (mItemRight == ScreenUtils.dip2px(90)) {
             isShowDelete = false;
         }
         if (mItemRight == 0) {
             isShowDelete = true;
-        }*/
-
+        }
         super.clearView(recyclerView, viewHolder);
     }
 
@@ -85,45 +82,32 @@ public class QQItemMoveCallback extends ItemTouchHelper.Callback {
     @Override
     public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
 
-        /*//方案一
+        mSwipeDx = dX;
         QQItemMoveAdapter.ItemViewHolder itemViewHolder = (QQItemMoveAdapter.ItemViewHolder) viewHolder;
-        int width = itemViewHolder.itemView.getWidth();
-        Log.d(TAG, "onChildDraw: dX = " + dX + "  ;width = " + width + "  ; isShowDelete = " + isShowDelete);
-        if (dX - mLastdX > 0) {
+
+        Log.d(TAG, "onChildDraw: dX = " + dX + "  ;right = " + mItemRight + "  ; isShowDelete = " + isShowDelete);
+        if (dX > 0) {
             //代表在右滑
-            if (isShowDelete) {
-                float rightdX = -ScreenUtils.dip2px(90) + dX;
-                if (rightdX <= 0){
-                    itemViewHolder.mItemContent.setTranslationX(-ScreenUtils.dip2px(90) + dX);
-                }else{
-                    itemViewHolder.mItemContent.setTranslationX(0);
-                    isShowDelete = false;
-                }
+            if (!isShowDelete) {
+                itemViewHolder.mItemContent.setTranslationX(0);
             }
         } else {
             //代表在左滑
             if (dX < -ScreenUtils.dip2px(90)) {
-                itemViewHolder.mItemContent.setTranslationX(-ScreenUtils.dip2px(90));
                 isShowDelete = true;
-            }else{
+            }
+
+            if (isShowDelete) {
+                itemViewHolder.mItemContent.setTranslationX(-ScreenUtils.dip2px(90));
+            } else {
                 itemViewHolder.mItemContent.setTranslationX(dX);
             }
+
         }
+        mItemRight = itemViewHolder.mItemContent.getRight();
 
-        mLastdX = dX;*/
 
 
-       // super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-
-        //方案二
-
-        QQItemMoveAdapter.ItemViewHolder itemViewHolder = (QQItemMoveAdapter.ItemViewHolder) viewHolder;
-        float actionWidth = itemViewHolder.mLlSlide.getWidth();
-        if (dX < -actionWidth) {
-            dX = -actionWidth;
-        }
-        itemViewHolder.mItemContent.setTranslationX(dX);
-        return;
-
+        //super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
     }
 }

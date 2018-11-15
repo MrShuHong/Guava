@@ -53,4 +53,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/custom_bottom_sheet"
         tools:ignore="HardcodedText" />
+
+
+    <Button
+        android:id="@+id/recycler_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="recyclerview"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/custom_floating_button_behavior"
+        tools:ignore="HardcodedText" />
 </android.support.constraint.ConstraintLayout>
