@@ -115,7 +115,7 @@ public class OrgTreeCheckBoxAdapter extends SelectTreeAdapter<OrgNode> {
                     for (TreeNode<OrgNode> child : children) {
                         OrgNode bean = child.getBean();
                         mSelectMap.remove(bean.getId());
-                        addSelectNodeToMap(child.getChildren());
+                        removeSelectNodeToMap(child.getChildren());
                     }
                 }
             }

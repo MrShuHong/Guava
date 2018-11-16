@@ -17,6 +17,7 @@
     <ListView
         android:id="@+id/list_tree"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layoutAnimation="@anim/anim_listview_item"/>
 
 </LinearLayout>

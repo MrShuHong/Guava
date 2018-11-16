@@ -25,6 +25,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
 
 dependencies {
@@ -39,4 +45,10 @@ dependencies {
     implementation project(':hencoder')
     implementation project(':sourcecode')
     implementation project(':widget')
+
+    //添加下面这句就可以了
+    compile project(":annotation")
+    annotationProcessor project(':compiler')
+
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
 }
